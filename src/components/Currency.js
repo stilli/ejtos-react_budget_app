@@ -4,7 +4,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 
 const Currency = () => {
-    const { dispatch, currency } = useContext(AppContext);
+    const { dispatch, currency, currency_name } = useContext(AppContext);
 
     const changeCurrency = (val) => {
         dispatch({
@@ -12,14 +12,14 @@ const Currency = () => {
             payload: val,
         })
     }
-    const currencyTitle = "Currency (" + currency + ")";
+    const currencyTitle = "Currency (" + currency + " " + currency_name + ")";
 
     return (
         <DropdownButton
             title={currencyTitle}
             id="dropdown-menu-align-left"
             onSelect={changeCurrency}
-            variant="btn btn-primary"
+            variant="btn btn-secondary"
         >
             <Dropdown.Item eventKey="$">$ Dollar</Dropdown.Item>
             <Dropdown.Item eventKey="£">£ Pound</Dropdown.Item>
